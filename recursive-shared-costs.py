@@ -60,8 +60,11 @@ def pay_fair_share(person_num, costs): #take input of person number and current 
 
             # Call the function again, to try the same process with the same person paying debt, but updated costs (credit and debt) array
             pay_fair_share(person_num, costs)
+
             
 
 # Use the function
 for i, _ in enumerate(credits): #iterate through each person
     pay_fair_share(i, credits)
+
+# not sure how it is iterating through corrently and accessing correct version of costs...
