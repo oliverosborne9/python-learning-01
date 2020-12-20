@@ -4,7 +4,7 @@
 # Instructions are just printed.
 
 ### ENTER AN ARRAY WITH HOW MUCH EACH PERSON HAS SPENT ###
-spends = [65, 50, 75, 30, 15]
+spends = [0, 10, 5, 210]
 
 # Print initial spends
 print(f'spends: {spends}')
@@ -56,15 +56,13 @@ def pay_fair_share(person_num, costs): #take input of person number and current 
             # print('Case B')
             print(f'Person {person_num+1} pays person {index_max_cost+1} £{max_cost}.') #reimburse max person
             costs[person_num] += max_cost #erase some of debt (add amount paid to -ve debt to bring closer to 0)
-            costs[index_max_cost] -= owes #erase credit (subtract amount received from recipeint's credit)
+            costs[index_max_cost] -= max_cost #erase credit (subtract amount received from recipeint's credit)
 
             # Call the function again, to try the same process with the same person paying debt, but updated costs (credit and debt) array
             pay_fair_share(person_num, costs)
 
-            
+    return costs        
 
 # Use the function
 for i, _ in enumerate(credits): #iterate through each person
-    pay_fair_share(i, credits)
-
-# not sure how it is iterating through corrently and accessing correct version of costs...
+    credits = pay_fair_share(i, credits)
