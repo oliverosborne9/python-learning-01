@@ -22,21 +22,14 @@ def pay_fair_share(person_num, costs): #take input of person number and current 
     # amount by which the current person is below the target cost (cost_per_person)
     owes = -costs[person_num]
 
-    # If in credit/nothing owed, then move on
-    if owes<=0:
-        pass
-    
-    else:
+    # If in debt, go through paying off process
+    if owes>0:
 
         # Create variables for tracking who is currently owed the most
         max_cost = 0
         index_max_cost = 0
 
-        for i, cost in enumerate(costs): # iterate through credits/debts 
-
-            # Don't pay youself anything
-            if i==person_num:
-                pass
+        for i, cost in enumerate(costs): # iterate through credits/debts
             
             # If cost > current max cost
             elif cost>max_cost:
